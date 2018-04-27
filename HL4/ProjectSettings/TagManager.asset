@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Fire
   - Interaction
   layers:
   - Default
@@ -15,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - Interaction
+  - Player
   - 
   - 
   - 
