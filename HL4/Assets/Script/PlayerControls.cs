@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Weapon {Off, Bomb, Projectile, BouncingBall, BlackHole, DuplicatingHole, PullingHole}
+enum Weapon {Off, Bomb, Projectile}
 
 public class PlayerControls : MonoBehaviour {
 
@@ -14,10 +14,6 @@ public class PlayerControls : MonoBehaviour {
     public Transform handPosition;
     public GameObject bombPreFab;
     public GameObject projectilePreFab;
-    public GameObject bouncingBallPreFab;
-    public GameObject blackHolePreFab;
-    public GameObject duplicatingHolePreFab;
-    public GameObject pullingHolePreFab;
     public float throwForce;
     public float slowMoFactor;
 
@@ -51,18 +47,6 @@ public class PlayerControls : MonoBehaviour {
                     weapon = Weapon.Projectile;
                     break;
                 case Weapon.Projectile:
-                    weapon = Weapon.BouncingBall;
-                    break;
-                case Weapon.BouncingBall:
-                    weapon = Weapon.BlackHole;
-                    break;
-                case Weapon.BlackHole:
-                    weapon = Weapon.DuplicatingHole;
-                    break;
-                case Weapon.DuplicatingHole:
-                    weapon = Weapon.PullingHole;
-                    break;
-                case Weapon.PullingHole:
                     weapon = Weapon.Bomb;
                     break;
             }
@@ -74,14 +58,6 @@ public class PlayerControls : MonoBehaviour {
                 weapon = Weapon.Bomb;
             else if (Input.GetKeyDown(KeyCode.Alpha2))
                 weapon = Weapon.Projectile;
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
-                weapon = Weapon.BouncingBall;
-            else if (Input.GetKeyDown(KeyCode.Alpha4))
-                weapon = Weapon.BlackHole;
-            else if (Input.GetKeyDown(KeyCode.Alpha5))
-                weapon = Weapon.DuplicatingHole;
-            else if (Input.GetKeyDown(KeyCode.Alpha6))
-                weapon = Weapon.PullingHole;
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -140,23 +116,7 @@ public class PlayerControls : MonoBehaviour {
                     case Weapon.Projectile:
                         GameObject projectile = Instantiate(projectilePreFab, handPosition.position, Quaternion.identity);
                         projectile.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwForce);
-                        break;
-                    case Weapon.BouncingBall:
-                        GameObject bouncingBall = Instantiate(bouncingBallPreFab, handPosition.position, Quaternion.identity);
-                        bouncingBall.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwForce);
-                        break;
-                    case Weapon.BlackHole:
-                        GameObject blackHole = Instantiate(blackHolePreFab, handPosition.position, Quaternion.identity);
-                        blackHole.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwForce);
-                        break;
-                    case Weapon.DuplicatingHole:
-                        GameObject duplicatingHole = Instantiate(duplicatingHolePreFab, handPosition.position, Quaternion.identity);
-                        duplicatingHole.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwForce);
-                        break;                  
-                    case Weapon.PullingHole:
-                        GameObject pullingHole = Instantiate(pullingHolePreFab, handPosition.position, Quaternion.identity);
-                        pullingHole.GetComponent<Rigidbody>().AddForce(cam.transform.forward * throwForce);
-                        break;                    
+                        break;                   
                     default:
                         break;
                 }
