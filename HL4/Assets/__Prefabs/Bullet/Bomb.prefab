@@ -194,11 +194,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 1.5
   explosionForce: 800
-  explosionRadius: 1800
+  explosionRadius: 1000
   upModifier: 10
   bombMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   explosionEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 2}
 --- !u!135 &135217958575868120
 SphereCollider:

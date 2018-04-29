@@ -29,6 +29,8 @@ public class Hole : MonoBehaviour {
                 Rigidbody rigidbody = collider.GetComponent<Rigidbody>();
                 if (rigidbody != null)
                 {
+                    rigidbody.isKinematic = false;
+                    rigidbody.useGravity = true;
                     Vector3 forceDirection = transform.position - collider.transform.position;
                     // apply force on target towards me
                     rigidbody.AddForce(forceDirection.normalized * pullForce * Time.fixedDeltaTime);

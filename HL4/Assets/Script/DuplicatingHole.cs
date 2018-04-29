@@ -6,7 +6,8 @@ public class DuplicatingHole : Hole {
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 8)
-            Object.Instantiate(other.gameObject);
+        if (holeMask == (holeMask | 1 << other.gameObject.layer))
+        
+            Instantiate(other.gameObject);
     }
 }

@@ -23,10 +23,10 @@ GameObject:
   - component: {fileID: 135288483431015622}
   - component: {fileID: 23439098465507174}
   - component: {fileID: 54185909535155518}
-  - component: {fileID: 114302603181915524}
+  - component: {fileID: 114372803990252336}
   m_Layer: 0
-  m_Name: PullingHole
-  m_TagString: Undefined
+  m_Name: DuplicatingHole
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0541d792a4c6eff469a43691b52e79f1, type: 2}
+  - {fileID: 2100000, guid: 140611c8be69109469d1ce9e63f2b18c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,7 +100,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114302603181915524
+--- !u!114 &114372803990252336
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -108,15 +108,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1773568818922440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a2bd0a29aeed51498f3b98e25c50b05, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d20e1cb5aaced94e82d31fd192c66f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 60
-  pullForce: 2000
+  lifeTime: 10
+  pullForce: 800
   pullRadius: 1000
   holeMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
 --- !u!135 &135288483431015622
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -124,7 +124,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1773568818922440}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

@@ -24,7 +24,18 @@ public class BombScript : MonoBehaviour {
         {
             Rigidbody rigidbody = collider.GetComponent<Rigidbody>();
             if (rigidbody != null)
+            {
                 rigidbody.AddExplosionForce(explosionForce, transform.position, explosionRadius, upModifier);
+                if(rigidbody.gameObject.GetComponent<Building>() != null)
+                {
+                    float normalizedDamage = explosionForce / explosionRadius;
+                    float distance = (rigidbody.transform.position - gameObject.transform.position).magnitude;
+                    float damage = normalizedDamage * (explosionRadius - distance);
+                    rigidbody.gameObject.GetComponent<Building>().HitPoints -= damage;
+                }
+                    
+            }
+
         }
         explosionEffectClone = Instantiate(explosionEffect, transform.position, Quaternion.identity);
         gameObject.GetComponent<AudioSource>().Play();
